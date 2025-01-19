@@ -53,10 +53,16 @@ button {
     background-color: #6200ea;
     cursor: pointer;
     border-radius: 12px;
+    color: white;
+
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
-    color: white;
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
 }
