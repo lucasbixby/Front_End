@@ -1,0 +1,69 @@
+{
+    "title": "gathering data schedule builder",
+    "form": {
+      "id": "surveyForm",
+      "fields": [
+        {
+          "label": "What time do you wake up?",
+          "type": "time",
+          "id": "wakeUpTime",
+          "name": "wakeUpTime",
+          "required": true
+        },
+        {
+          "label": "What time do you go to bed?",
+          "type": "time",
+          "id": "sleepTime",
+          "name": "sleepTime",
+          "required": true
+        },
+        {
+          "label": "What times do you NOT want to do homework?",
+          "type": "group",
+          "fields": [
+            {
+              "label": "Start Time",
+              "type": "time",
+              "id": "homeworkStart",
+              "name": "homeworkStart",
+              "required": true
+            },
+            {
+              "label": "End Time",
+              "type": "time",
+              "id": "homeworkEnd",
+              "name": "homeworkEnd",
+              "required": true
+            }
+          ]
+        },
+        {
+          "label": "How many classes do you take?",
+          "type": "dropdown",
+          "id": "classCount",
+          "name": "classCount",
+          "options": [
+            { "value": "1", "label": "1" },
+            { "value": "2", "label": "2" },
+            { "value": "3", "label": "3" },
+            { "value": "4", "label": "4" },
+            { "value": "5", "label": "5" }
+          ]
+        },
+        {
+          "label": "Upload syllabus for each class",
+          "type": "dynamic",
+          "id": "fileUploadContainer",
+          "name": "syllabus",
+          "accept": ".pdf",
+          "required": true
+        }
+      ],
+      "submit": {
+        "type": "link",
+        "href": "calendar.html",
+        "label": "submit"
+      }
+    }
+  }
+  
