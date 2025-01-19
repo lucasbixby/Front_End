@@ -12,23 +12,8 @@
     <!-- Button to inject content script -->
     <button id="extract-btn">Extract Data</button>
     <!-- Button to navigate to another page -->
+    <main>
     <button onclick="window.open('calendar.html', '_blank');">Matrix Calendar</button>
-
-    <script>
-        // Add event listener to inject the content script
-        document.getElementById('extract-btn').addEventListener('click', () => {
-            chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-                chrome.scripting.executeScript(
-                    {
-                        target: { tabId: tabs[0].id },
-                        files: ['content.js']
-                    },
-                    () => {
-                        console.log("Content script injected.");
-                    }
-                );
-            });
-        });
-    </script>
+    </main>
 </body>
 </html>
