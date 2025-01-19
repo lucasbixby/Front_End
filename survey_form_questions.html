@@ -28,24 +28,55 @@
               <input type="time" id="homeworkEnd" name="homeworkEnd" required>
             </div>
           </div>
-          <div class="question">
-            <label for="classCount">How many classes do you take?</label><br>
-            <input type="number" id="classCount" min="1" required>
-            <button type="button" id="startButton">Start</button>
-          </div>
-          
-          <div class="question">
-              <label for="syllabus">Upload your syllabus as a PDF:</label><br>
-              <input type="file" id="syllabus" name="syllabus" accept=".pdf" required>
-          </div>            
-            
-            
-            
-            <a href="calendar.html" target="_blank"> 
-              submit button</a>
-        </form>
+          <form id="dynamicForm">
+            <label for="classCount">How many classes do you take?</label>
+            <select id="classCount" name="classCount">
+              <option value="" disabled selected>Select a number</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
         
-        <script>
-        </script>
+            <div id="fileUploadContainer"></div>
+            <button type="submit">Submit</button>
+          </form>
+        
+          <script>
+            const classCountDropdown = document.getElementById('classCount');
+            const fileUploadContainer = document.getElementById('fileUploadContainer');
+        
+            // Listen for changes in the dropdown
+            classCountDropdown.addEventListener('change', function () {
+              const classCount = parseInt(this.value);
+        
+              // Clear any existing file upload inputs
+              fileUploadContainer.innerHTML = '';
+        
+              // Generate file upload inputs based on the selected number
+              for (let i = 1; i <= classCount; i++) {
+                const fileUploadDiv = document.createElement('div');
+                fileUploadDiv.classList.add('file-upload');
+                fileUploadDiv.innerHTML = `
+                  <label for="syllabus${i}">Upload syllabus for Class ${i}:</label>
+                  <input type="file" id="syllabus${i}" name="syllabus${i}" accept=".pdf" required>
+                `;
+                fileUploadContainer.appendChild(fileUploadDiv);
+              }
+            });
+        
+            // Handle form submission
+            document.getElementById('dynamicForm').addEventListener('submit', function (e) {
+              e.preventDefault(); // Prevent default form submission
+        
+              const formData = new FormData(this);
+              for (let [key, value] of formData.entries()) {
+                console.log(`${key}:`, value);
+              }
+        
+              alert('Form submitted successfully!');
+            });
+          </script>
     </body>
 </html>
