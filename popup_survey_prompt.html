@@ -7,13 +7,31 @@
         <link rel="stylesheet" herf="style_sheet.css">
     </head>
     <body>
-        <button id="extract-btn">Extract Data</button>
-        <pre id="output"></pre>
+        <button herf="javascript:void(0);" onclick="injectContentScript()">Extract Data</button>
     
-        <script src="popup.js"></script>
-        <a href="calendar.html">scan page.</a>
+        <script>
+            function injectContentScript(buttonId, contentScript) {
+    // Add a click event listener to the button
+    document.getElementById(buttonId).addEventListener('click', () => {
+        // Query the active tab in the current window
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            // Inject the content script into the active tab
+            chrome.scripting.executeScript(
+                {
+                    target: { tabId: tabs[0].id },
+                    files: [contentScript]
+                },
+                () => {
+                    console.log(`${contentScript} injected into the active tab.`);
+                }
+            );
+        });
+    });
+}
+        </script>
+        <button href="calendar.html">scan page.</button>
 
-        <a herf="syllabus_text.txt">text page</a>
+        <button herf="syllabus_text.txt">text page</button>
     </body>
  </html>
  </html>
