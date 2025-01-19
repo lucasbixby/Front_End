@@ -48,3 +48,15 @@ button {
     color: white;
 
 }
+
+.fake_button {
+    background-color: #6200ea;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+
+}
