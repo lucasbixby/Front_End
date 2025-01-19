@@ -38,7 +38,7 @@
           ]
         },
         {
-          "label": "How many classes do you take?",
+          "label": "How many classes do youtake?",
           "type": "dropdown",
           "id": "classCount",
           "name": "classCount",
