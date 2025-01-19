@@ -4,39 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gathering data schedule builder</title>
+
     </head>
     <body>
         <h1>Data for schedule builder</h1>
         <form id="surveyForm">
-            <div class="question">
-                <label for="syllabus">Upload your syllabus as a PDF:</label><br>
-                <input type="file" id="syllabus" name="syllabus" accept=".pdf" required>
+          <div class="question">
+            <label for="wakeUpTime">What time do you wake up?</label><br>
+            <input type="time" id="wakeUpTime" name="wakeUpTime" required>
+          </div>
+          <div class="question">
+            <label for="sleepTime">What time do you go to bed?</label><br>
+            <input type="time" id="sleepTime" name="sleepTime" required>
+          </div>
+          <div class="question">
+            <label for="homeworkStart">What times do you NOT want to do homework?</label><br>
+            <div>
+              <label for="homeworkStart">Start Time:</label>
+              <input type="time" id="homeworkStart" name="homeworkStart" required>
             </div>
+            <div>
+              <label for="homeworkEnd">End Time:</label>
+              <input type="time" id="homeworkEnd" name="homeworkEnd" required>
+            </div>
+          </div>
+          <div class="question">
+            <label for="classCount">How many classes do you take?</label><br>
+            <input type="number" id="classCount" min="1" required>
+            <button type="button" id="startButton">Start</button>
+          </div>
+          
+          <div class="question">
+              <label for="syllabus">Upload your syllabus as a PDF:</label><br>
+              <input type="file" id="syllabus" name="syllabus" accept=".pdf" required>
+          </div>            
             
             
             
-            
-            <a href="setup.html" target="_blank"> 
+            <a href="calendar.html" target="_blank"> 
               submit button</a>
         </form>
         
         <script>
-            document.getElementById('syllabus').addEventListener('change', function () {
-              const file = this.files[0];
-              if (file) {
-                if (file.type === 'application/pdf') {
-                  alert(`File uploaded: ${file.name}`);
-                } else {
-                  alert('Please upload a valid PDF file.');
-                  this.value = '';
-                }
-              }
-            });
-        
-            document.getElementById('surveyForm').addEventListener('submit', function (e) {
-              e.preventDefault();
-              alert('Form submitted successfully!');
-            });
-          </script>
+        </script>
     </body>
 </html>
