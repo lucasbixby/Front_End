@@ -9,10 +9,75 @@
     <body>
         <h1>Data for schedule builder</h1>
         <form id="surveyForm">
-
-        </form>
+          <div class="question">
+            <label for="wakeUpTime">What time do you wake up?</label><br>
+            <input type="time" id="wakeUpTime" name="wakeUpTime" required>
+          </div>
+          <div class="question">
+            <label for="sleepTime">What time do you go to bed?</label><br>
+            <input type="time" id="sleepTime" name="sleepTime" required>
+          </div>
+          <div class="question">
+            <label for="homeworkStart">What times do you NOT want to do homework?</label><br>
+            <div>
+              <label for="homeworkStart">Start Time:</label>
+              <input type="time" id="homeworkStart" name="homeworkStart" required>
+            </div>
+            <div>
+              <label for="homeworkEnd">End Time:</label>
+              <input type="time" id="homeworkEnd" name="homeworkEnd" required>
+            </div>
+          </div>
+          <form id="dynamicForm">
+            <label for="classCount">How many classes do you take?</label>
+            <select id="classCount" name="classCount">
+              <option value="" disabled selected>Select a number</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
         
-        <script>
-        </script>
+            <div id="fileUploadContainer"></div>
+            <a href="scanpage.js"> 
+              submit</a>
+          </form>
+        
+          <script>
+            const classCountDropdown = document.getElementById('classCount');
+            const fileUploadContainer = document.getElementById('fileUploadContainer');
+        
+            // Listen for changes in the dropdown
+            classCountDropdown.addEventListener('change', function () {
+              const classCount = parseInt(this.value);
+        
+              // Clear any existing file upload inputs
+              fileUploadContainer.innerHTML = '';
+        
+              // Generate file upload inputs based on the selected number
+              for (let i = 1; i <= classCount; i++) {
+                const fileUploadDiv = document.createElement('div');
+                fileUploadDiv.classList.add('file-upload');
+                fileUploadDiv.innerHTML = `
+                  <label for="syllabus${i}">Upload syllabus for Class ${i}:</label>
+                  <input type="file" id="syllabus${i}" name="syllabus${i}" accept=".pdf" required>
+                `;
+                fileUploadContainer.appendChild(fileUploadDiv);
+              }
+            });
+        
+            // Handle form submission
+            document.getElementById('dynamicForm').addEventListener('submit', function (e) {
+              e.preventDefault(); // Prevent default form submission
+        
+              const formData = new FormData(this);
+              for (let [key, value] of formData.entries()) {
+                console.log(`${key}:`, value);
+              }
+        
+              alert('Form submitted successfully!');
+            });
+          </script>
     </body>
 </html>
