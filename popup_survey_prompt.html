@@ -8,7 +8,15 @@
 </head>
 <body>
     <main>
-        <button onclick="window.open('calendar.html', '_blank');">Matrix Calendar</button>
+        <button onclick="openInNewTab()">Matrix Calendar</button>
     </main>
+
+    <script>
+        function openInNewTab() {
+            // Open the link in a completely new tab
+            window.open('calendar.html', '_blank', 'noopener,noreferrer');
+        }
+    </script>
 </body>
 </html>
+
