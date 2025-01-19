@@ -5,7 +5,7 @@
     "description": "A productivity manager for Canvas.",
     "permissions": ["storage"],
     "action": {
-      "default_popup": "popup.html",
+      "default_popup": "popup_survey_prompt.html",
       "default_icon": "icon.png"
     },
     "background": {
