@@ -37,3 +37,9 @@ footer {
     bottom: 0;
     width: 100%;
 }
+button {
+    background-color: #6200ea;
+    cursor: pointer;
+    border-radius: 12px;
+
+}
