@@ -1,1 +1,33 @@
 <!-- popup survey-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Productivity Manager</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_sheet.css">
+</head>
+<body>
+    <!-- Button to inject content script -->
+    <button id="extract-btn">Extract Data</button>
+    <!-- Button to navigate to another page -->
+    <button onclick="window.location.href='calendar.html';">Scan Page</button>
+
+    <script>
+        // Add event listener to inject the content script
+        document.getElementById('extract-btn').addEventListener('click', () => {
+            chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+                chrome.scripting.executeScript(
+                    {
+                        target: { tabId: tabs[0].id },
+                        files: ['content.js']
+                    },
+                    () => {
+                        console.log("Content script injected.");
+                    }
+                );
+            });
+        });
+    </script>
+</body>
+</html>
