@@ -1,0 +1,33 @@
+/*starting to make look nice to connect it all*/
+
+.background_popup{
+    background: #1E1E1E;
+    width: 750px;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px 0;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.options:hover{
+    background: #3a3a3a;
+}
+
+.title{
+    position: relative;
+    width: 200px;
+    height: auto;
+    margin: 0 auto;
+    padding-bottom: 20px;    
+}
+
+.options{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
